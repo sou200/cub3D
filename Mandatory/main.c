@@ -186,6 +186,7 @@ int main(int ac, char **av)
 
     d = game_init(ac, av);
     atexit(f);
+    return (1);
     mlx_loop_hook(d->mlx, game_loop, d);
     mlx_loop_hook(d->mlx, key_hook, d);
     mlx_loop_hook(d->mlx, mouse_loop, d);

@@ -2,7 +2,7 @@ NAME = cub3d
 CFLAGS =  -Werror -Wextra -Wall #-fsanitize=address -g3
 RM = rm -f
 CC = cc
-MLXFLAGS = -Iinclude -lglfw -L"/Users/serhouni/.brew/opt/glfw/lib/"
+MLXFLAGS = -Iinclude -lglfw -L"/Users/${USER}/Homebrew/opt/glfw/lib/"
 MLXLIB = MLX42/build/libmlx42.a
 
 SRCS = Mandatory/main.c \

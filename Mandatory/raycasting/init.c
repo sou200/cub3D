@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eoussama <eoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 00:49:39 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/21 18:26:25 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/21 22:40:04 by eoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,8 @@ t_data* game_init(int ac, char **av)
     t_data* d;
 
     args = parsing(ac, av);
+    free_args(args, 1); //ff
+    return NULL;                   //ff
     d = m_malloc(sizeof(t_data));
     if(!d)
         return terminate(d, EXIT_FAILURE,args, 1), NULL;
