@@ -1,0 +1,50 @@
+Process:         cub3d [45943]
+Path:            /Volumes/VOLUME/*/cub3d
+Load Address:    0x10318c000
+Identifier:      cub3d
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [41753]
+
+Date/Time:       2024-01-20 18:39:40.653 +0100
+Launch Time:     2024-01-20 18:39:35.524 +0100
+OS Version:      Mac OS X 10.15.7 (19H2026)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 12.4 (12D4e)
+
+Physical footprint:         110.9M
+Physical footprint (peak):  112.7M
+----
+
+leaks Report Version: 4.0
+Process 45943: 21551 nodes malloced for 104989 KB
+Process 45943: 16 leaks for 384 total leaked bytes.
+
+    16 (384 bytes) << TOTAL >>
+
+      8 (224 bytes) ROOT LEAK: 0x7f9d1c504190 [112]
+         1 (16 bytes) 0x7f9d1c504160 [16]  length: 14  "SO hassan3.png"
+         1 (16 bytes) 0x7f9d1c504170 [16]  length: 11  "NO free.png"
+         1 (16 bytes) 0x7f9d1c504180 [16]  length: 9  "EA sh.png"
+         1 (16 bytes) 0x7f9d1c504200 [16]  length: 11  "WE wall.png"
+         1 (16 bytes) 0x7f9d1c504210 [16]  length: 1  ""
+         1 (16 bytes) 0x7f9d1c504220 [16]  length: 8  "C 4,33,6"
+         1 (16 bytes) 0x7f9d1c504230 [16]  length: 13  "F 200,100,100"
+
+      4 (80 bytes) ROOT LEAK: 0x7f9d1c5042d0 [32]
+         1 (16 bytes) 0x7f9d1c5042f0 [16]  length: 3  "200"
+         1 (16 bytes) 0x7f9d1c504300 [16]  length: 3  "100"
+         1 (16 bytes) 0x7f9d1c504310 [16]  length: 3  "100"
+
+      4 (80 bytes) ROOT LEAK: 0x7f9d1c504320 [32]
+         1 (16 bytes) 0x7f9d1c504340 [16]  length: 1  "4"
+         1 (16 bytes) 0x7f9d1c504350 [16]  length: 2  "33"
+         1 (16 bytes) 0x7f9d1c504360 [16]  length: 1  "6"
+
+  1  
+ 111 
+11011
+ 111 
+  1  
+5 5
