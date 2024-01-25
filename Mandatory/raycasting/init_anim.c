@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_data.c                                        :+:      :+:    :+:   */
+/*   init_anim.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 04:43:28 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/25 04:44:46 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/25 08:03:14 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,12 @@ void	init_animation(t_data *d, t_args *args)
 	a->anim_state = 0;
 	a->i = 0;
 	a->n = 45;
-	load_frames1(a);
+	load_frames(a);
 	while (++f_i < a->n)
+	{
+		printf("%d %p\n", f_i, a->frames[f_i]);
 		if (!a->frames[f_i])
 			terminate(d, EXIT_FAILURE, args, 1);
+	}
 	d->anim = a;
 }

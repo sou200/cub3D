@@ -39,13 +39,13 @@ void render_game(t_data *d)
         t_dbl textY = 0;
         t_dbl step = (t_dbl)d->t->height / wallHeit;
 
-        if(end > HIGHT)
-            end = HIGHT;
-        if(beg < 0)
-        {
-            textY = -(beg * step);
-            beg = 0;
-        }
+        // if(end > HIGHT)
+        //     end = HIGHT;
+        // if(beg < 0)
+        // {
+        //     textY = -(beg * step);
+        //     beg = 0;
+        // }
 
 
         int j = beg;
@@ -58,6 +58,8 @@ void render_game(t_data *d)
             textY += step;
             j++;
         }
+
+
 
         // textures end.
     
@@ -93,12 +95,12 @@ int main(int ac, char **av)
     // atexit(f);
     t_data *d;
 
-    printf("Ana Zaml\n");
     d = game_init(ac, av);
     mlx_loop_hook(d->mlx, game_loop, d);
     mlx_loop_hook(d->mlx, key_hook, d);
     mlx_loop_hook(d->mlx, mouse_loop, d);
     mlx_close_hook(d->mlx, close_hook, d);
+    
     mlx_mouse_hook(d->mlx, mouse_key_hook, d);
     mlx_set_cursor_mode(d->mlx, MLX_MOUSE_DISABLED);
     mlx_loop(d->mlx);
