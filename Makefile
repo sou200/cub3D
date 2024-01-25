@@ -1,8 +1,8 @@
 NAME = cub3d
-CFLAGS =  -Werror -Wextra -Wall #-fsanitize=address -g3
+CFLAGS =  -Werror -Wextra -Wall -fsanitize=address -g3
 RM = rm -f
 CC = cc
-MLXFLAGS = -Iinclude -lglfw -L"/Users/${USER}/Homebrew/opt/glfw/lib/"
+MLXFLAGS = -Iinclude -lglfw -L"/Users/${USER}/.brew/opt/glfw/lib/"
 MLXLIB = MLX42/build/libmlx42.a
 
 SRCS = Mandatory/main.c \
@@ -16,9 +16,17 @@ SRCS = Mandatory/main.c \
 	Mandatory/raycasting/color_utils.c \
 	Mandatory/raycasting/animation.c \
 	Mandatory/raycasting/free_utils.c \
+	Mandatory/raycasting/free_data.c \
 	Mandatory/raycasting/lib_utils.c \
+	Mandatory/raycasting/better_mlx.c \
+	Mandatory/raycasting/floor_celling.c \
+	Mandatory/raycasting/raycast_utils.c \
+	Mandatory/raycasting/textures.c \
+	Mandatory/raycasting/init_anim.c \
 	Mandatory/parsing/gnl.c \
 	Mandatory/parsing/parc.c \
+
+
 
 OBJS = $(SRCS:.c=.o)
 

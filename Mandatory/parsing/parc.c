@@ -84,7 +84,6 @@ char	**map_copy(char *str, t_args *args)
 	int fd;
 	lines = map_lines(str);
 	map = malloc((lines + 1) * (sizeof(char *)));
-	printf("2 - %p\n", map);
 	if (!map)
 		(exit(1));
 	i = 0;
@@ -287,7 +286,6 @@ char	**make_mwipa(char **map, int i)
 	while (map[j])
 		j++;
 	mwipa = malloc(sizeof(char *) * (j - i + 1));
-	printf("3 - %p\n", mwipa);
 	if (!mwipa)
 		exit(1);
 	j = 0;
@@ -314,7 +312,8 @@ int	valid_player(char **mwipa, int i, int c)
 	if ((length(mwipa[i + 1]) - 1) < c || (length(mwipa[i - 1]) - 1) < c)
 		return (1);
 	dire = malloc(5);
-	printf("4 - %p\n", dire);
+	if(!dire)
+		return (exit(1), 1);
 	dire[4] = '\0';
 	d = 0;
 	dire[0] = mwipa[i - 1][c];
@@ -395,14 +394,12 @@ char	**final_map(char **mwipa, t_args *args)
 	int j;
 	i = 0;
 	map = malloc((args->h + 1) * sizeof(char *));
-	printf("5 - %p\n", map);
 	if (!map)
 		return (exit(1), NULL);
 	while (mwipa[i])
 	{
 		j = 0;
 		map[i] = malloc(args->w);
-		printf("6 - %p\n", map[i]);
 		if (!map[i])
 			return (exit(1), NULL);
 		while (mwipa[i][j] && mwipa[i][j] != '\n')
@@ -493,7 +490,8 @@ t_args*	parsing(int ac, char **av)
 	t_args *args;
 	char **map;
 	args = malloc(sizeof(t_args));
-	printf("1 - %p\n", args);
+	if(!args)
+		return (exit(1), NULL);
 	put_null(args);
 	check_name(ac, av, args);
 	map = map_copy(av[1], args);

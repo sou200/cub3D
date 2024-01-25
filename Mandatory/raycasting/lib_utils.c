@@ -6,7 +6,7 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 09:46:40 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/21 09:51:45 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/25 04:48:04 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-void *m_malloc(size_t size)
+void	*m_malloc(size_t size)
 {
-    void *p = malloc(size);
-    if(p == NULL)
-        return NULL;
-    ft_memset(p, 0x00, size);
-    return p;
+	void	*p;
+
+	p = malloc(size);
+	if (p == NULL)
+		return (NULL);
+	ft_memset(p, 0x00, size);
+	return (p);
 }

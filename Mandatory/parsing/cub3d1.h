@@ -27,7 +27,7 @@ char **map;
 # include <ctype.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 10
 # endif
 
 char	*get_next_line(int fd);

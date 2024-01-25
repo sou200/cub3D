@@ -3,83 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   free_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eoussama <eoussama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 14:43:07 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/21 22:36:01 by eoussama         ###   ########.fr       */
+/*   Updated: 2024/01/25 02:14:29 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void free_anim(t_anim *anim)
+void	free_args(t_args *args, int free_map_f)
 {
-    int i;
-
-    i = 0;
-    if(!anim)
-        return;
-    while(i < anim->n)
-    {
-        if(anim->frames[i])
-            mlx_delete_texture(anim->frames[i]);
-        i++;
-    }
-    free(anim);
+	if (free_map_f)
+		free_2d(args->map);
+	free(args->no);
+	free(args->so);
+	free(args->we);
+	free(args->ea);
+	free(args);
 }
 
-void free_texts(t_textures *texs)
+void	terminate(t_data *data, int exit_status, t_args *args, int free_args_f)
 {
-    if(!texs)
-        return;
-    if(texs->no_tex)
-        mlx_delete_texture(texs->no_tex);
-    if(texs->so_tex)
-        mlx_delete_texture(texs->so_tex);
-    if(texs->we_tex)
-        mlx_delete_texture(texs->we_tex);
-    if(texs->ea_tex)
-        mlx_delete_texture(texs->ea_tex);
+	if (free_args_f)
+		free_args(args, 0);
+	if (!data)
+		return ;
+	mlx_terminate(data->mlx);
+	free_data(data);
+	exit(exit_status);
 }
 
-void free_map(t_map *map)
+void	close_hook(void *param)
 {
-    int i;
-    i = 0;
-    
-    if(!map)
-        return;
-    free_2d(map->v);
-    free(map);
-}
+	t_data	*data;
 
-void free_args(t_args *args, int free_map_f)
-{
-    if(free_map_f)
-        free_2d(args->map);
-    free(args->no);
-    free(args->so);
-    free(args->we);
-    free(args->ea);
-    free(args);
-}
-
-void free_data(t_data *data)
-{
-    free_texts(data->texs);
-    free_anim(data->anim);
-    free_map(data->map);
-    free(data->minimap);
-    free(data);
-}
-
-void terminate(t_data *data,int exit_status, t_args *args, int free_args_f)
-{
-    if(free_args_f)
-        free_args(args, 0);
-    if(!data)
-        return ;
-    mlx_terminate(data->mlx);
-    free_data(data);
-    exit(exit_status);
+	data = (t_data *)param;
+	terminate(data, EXIT_SUCCESS, NULL, 0);
 }

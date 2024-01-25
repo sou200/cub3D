@@ -6,56 +6,57 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 02:38:04 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/19 02:40:01 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/25 04:09:17 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void draw_rec(mlx_image_t *image, int x, int y, int w, int h, int color)
+void	draw_minimap_border(t_data *d, int color)
 {
-    int i = x;
-    int j = y;
-    while (i <= w + x)
-    {
-        mlx_put_pixel(image, i, y, color);
-        mlx_put_pixel(image, i, y + h, color);
-        i++;
-    }
-    while (j <= h + y)
-    {
-        mlx_put_pixel(image, x, j, color);
-        mlx_put_pixel(image, x + w, j, color);
-        j++;
-    }
+	int	i;
+	int	j;
+
+	i = d->minimap->x;
+	j = d->minimap->y;
+	while (i <= d->minimap->size + d->minimap->x)
+	{
+		my_mlx_put_pixel(d->image, i, d->minimap->y, color);
+		my_mlx_put_pixel(d->image, i, d->minimap->y + d->minimap->size, color);
+		i++;
+	}
+	while (j <= d->minimap->size + d->minimap->y)
+	{
+		my_mlx_put_pixel(d->image, d->minimap->x, j, color);
+		my_mlx_put_pixel(d->image, d->minimap->x + d->minimap->size, j, color);
+		j++;
+	}
 }
 
-int draw_line(mlx_image_t *img, int beginX, int beginY, int endX, int endY, int color)
+void	init_line_p(double *delta_x, double *delta_y, int *pixels)
 {
-    double deltaX = endX - beginX;
-    double deltaY = endY - beginY;
+	*pixels = sqrt((*delta_x * *delta_x) + (*delta_y * *delta_y));
+	*delta_x /= *pixels;
+	*delta_y /= *pixels;
+}
 
-    int pixels = sqrt((deltaX * deltaX) + (deltaY * deltaY));
+int	draw_line_p(t_data *d, int endX, int endY)
+{
+	double	delta_x;
+	double	delta_y;
+	int		pixels;
 
-    deltaX /= pixels;
-    deltaY /= pixels;
-
-    double pixelX = beginX;
-    double pixelY = beginY;
-    while (pixels)
-    {
-        if(pixelX < 0)
-            pixelX = 0;
-        else if(pixelX > img->width)
-            pixelX = img->width;
-        if(pixelY < 0)
-            pixelY = 0;
-        else if(pixelY > img->height)
-            pixelY = img->height;
-        mlx_put_pixel(img, pixelX, pixelY, color);
-        pixelX += deltaX;
-        pixelY += deltaY;
-        --pixels;
-    }
-    return 1;
+	delta_x = endX - d->minimap->px;
+	delta_y = endY - d->minimap->py;
+	init_line_p(&delta_x, &delta_y, &pixels);
+	printf("%f %f\n", delta_x, delta_y);
+	while (pixels)
+	{
+		my_mlx_put_pixel(d->image, d->minimap->px, d->minimap->py, rgbt(255, 40,
+				40, 255));
+		d->minimap->px += delta_x;
+		d->minimap->py += delta_y;
+		--pixels;
+	}
+	return (1);
 }

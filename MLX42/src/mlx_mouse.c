@@ -6,7 +6,7 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 23:20:13 by W2Wizard          #+#    #+#             */
-/*   Updated: 2024/01/13 23:56:26 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/24 04:59:32 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,6 @@ void mlx_get_mouse_pos(mlx_t* mlx, int32_t* x, int32_t* y)
 
 	double xd, yd;
 	glfwGetCursorPos(mlx->window, &xd, &yd);
-	if(x)
-		*x = (int32_t)xd;
-	if(y)
-		*y = (int32_t)yd;
+	*x = (int32_t)xd;
+	*y = (int32_t)yd;
 }

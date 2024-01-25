@@ -6,7 +6,7 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 03:30:13 by W2Wizard          #+#    #+#             */
-/*   Updated: 2024/01/17 01:42:31 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/23 08:50:55 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ void mlx_put_pixel(mlx_image_t* image, uint32_t x, uint32_t y, uint32_t color)
 	MLX_NONNULL(image);
 	MLX_ASSERT(x < image->width, "Pixel is out of bounds");
 	MLX_ASSERT(y < image->height, "Pixel is out of bounds");
-	if(x < 0 || x >= image->width || y < 0 || y >= image->height)
-		return ;
 	uint8_t* pixelstart = &image->pixels[(y * image->width + x) * BPP];
 	mlx_draw_pixel(pixelstart, color);
 }
