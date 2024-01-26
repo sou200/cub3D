@@ -6,20 +6,20 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:13:12 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/25 04:55:20 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/25 20:48:31 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int	get_factor(enum player_state state)
+int	get_factor(enum e_player_state state)
 {
 	if (state == MOVE_RIGHT || state == MOVE_FORWARD || state == ROT_RIGHT)
 		return (1);
 	return (-1);
 }
 
-void	player_move(t_data *data, enum player_state state)
+void	player_move(t_data *data, enum e_player_state state)
 {
 	int		factor;
 
@@ -44,7 +44,7 @@ void	player_move(t_data *data, enum player_state state)
 	}
 }
 
-void	player_rotate_key(t_data *data, enum player_state state)
+void	player_rotate_key(t_data *data, enum e_player_state state)
 {
 	int	factor;
 

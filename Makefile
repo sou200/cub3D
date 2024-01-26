@@ -1,5 +1,5 @@
 NAME = cub3d
-CFLAGS =  -Werror -Wextra -Wall -fsanitize=address -g3
+CFLAGS =  -Werror -Wextra -Wall #-fsanitize=address -g3
 RM = rm -f
 CC = cc
 MLXFLAGS = -Iinclude -lglfw -L"/Users/${USER}/.brew/opt/glfw/lib/"
@@ -23,6 +23,7 @@ SRCS = Mandatory/main.c \
 	Mandatory/raycasting/raycast_utils.c \
 	Mandatory/raycasting/textures.c \
 	Mandatory/raycasting/init_anim.c \
+	Mandatory/raycasting/game_hook.c \
 	Mandatory/parsing/gnl.c \
 	Mandatory/parsing/parc.c \
 

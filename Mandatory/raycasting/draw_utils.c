@@ -6,7 +6,7 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 02:38:04 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/25 04:09:17 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/25 23:49:24 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	draw_line_p(t_data *d, int endX, int endY)
 	delta_x = endX - d->minimap->px;
 	delta_y = endY - d->minimap->py;
 	init_line_p(&delta_x, &delta_y, &pixels);
-	printf("%f %f\n", delta_x, delta_y);
 	while (pixels)
 	{
 		my_mlx_put_pixel(d->image, d->minimap->px, d->minimap->py, rgbt(255, 40,

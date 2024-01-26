@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/25 20:47:45 by serhouni          #+#    #+#             */
+/*   Updated: 2024/01/25 20:49:57 by serhouni         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
 
@@ -12,15 +24,6 @@
 # define HIGHT 600
 # define M_VOL 0.08
 # define R_VOL 0.03
-
-// int map[5][8] = {
-//             {1,1,1,1,1,1,1,1},
-//             {1,0,0,0,0,0,0,1},
-//             {1,0,1,1,0,0,0,1},
-//             {1,0,0,0,0,0,0,1},
-//             {1,1,1,1,1,1,1,1}
-//             };
-// extern int map[16][20];
 
 typedef double		t_dbl;
 
@@ -76,21 +79,6 @@ typedef struct s_data
 	t_minimap		*minimap;
 }					t_data;
 
-// typedef struct s_args
-// {
-// char *no;
-// char *so;
-// char *we;
-// char *ea;
-// int f_colors[3];
-// int c_colors[3];
-// double x;
-// double y;
-// char dir;
-// int p;
-// char **map;
-// } t_args;
-
 typedef struct s_ray
 {
 	t_dbl			dir[2];
@@ -98,13 +86,13 @@ typedef struct s_ray
 	double			dx;
 	double			dy;
 	int				side;
-	int				stepX;
-	int				stepY;
+	int				step_x;
+	int				step_y;
 	double			x_len;
 	double			y_len;
 }					t_ray;
 
-enum				player_state
+enum				e_player_state
 {
 	MOVE_FORWARD,
 	MOVE_BACKWARD,
@@ -116,10 +104,10 @@ enum				player_state
 
 void				render_map(t_data *d);
 int					draw_line_p(t_data *d, int endX, int endY);
-void				player_rotate_key(t_data *data, enum player_state state);
+void				player_rotate_key(t_data *data, enum e_player_state state);
 void				player_rotate(t_data *data, t_dbl alpha);
-void				player_move(t_data *data, enum player_state state);
-int					get_factor(enum player_state state);
+void				player_move(t_data *data, enum e_player_state state);
+int					get_factor(enum e_player_state state);
 void				rotate_vector(t_dbl *vec, t_dbl a);
 void				set_vector(t_dbl *vec, t_dbl x, t_dbl y);
 void				vector_unit(t_dbl *vec);
@@ -146,5 +134,6 @@ void				render_floor_celling(t_data *data);
 void				raycaster(t_data *d, t_ray *r);
 void				close_hook(void *param);
 void				init_animation(t_data *d, t_args *args);
+void				game_loop(void *g);
 
 #endif
