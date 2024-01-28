@@ -6,7 +6,7 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:48:13 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/26 03:37:04 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/27 20:38:45 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,5 @@ void	game_loop(void *g)
 	data->image = mlx_new_image(data->mlx, WIDTH, WIDTH);
 	render_floor_celling(data);
 	render_game(data);
-	weapon_anim(data);
-	if (data->anim->anim_state && data->anim->i >= 45)
-	{
-		data->anim->i = 0;
-		data->anim->anim_state = 0;
-	}
-	render_map(data);
 	mlx_image_to_window(data->mlx, data->image, 0, 0);
 }

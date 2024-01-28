@@ -6,7 +6,7 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 00:49:39 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/25 07:59:17 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/27 20:49:16 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,6 @@ void	init_textures(t_data *data, t_args *args)
 		terminate(data, EXIT_FAILURE, args, 1);
 }
 
-void	init_minimap(t_data *d, t_args *args)
-{
-	d->minimap = m_malloc(sizeof(t_minimap));
-	if (!d->minimap)
-		terminate(d, EXIT_FAILURE, args, 1);
-	d->minimap->size = 100;
-	d->minimap->x = 20;
-	d->minimap->y = 20;
-	d->minimap->zoom = 0.05;
-}
-
 void	init_map(t_data *d, t_args *args)
 {
 	d->map = m_malloc(sizeof(t_map));
@@ -79,12 +68,9 @@ t_data	*game_init(int ac, char **av)
 	if (!d->mlx)
 		return (terminate(d, EXIT_FAILURE, args, 1), NULL);
 	d->image = NULL;
-	mlx_get_mouse_pos(d->mlx, &d->mouse_x, NULL);
 	init_player(d, args);
 	init_map(d, args);
 	init_textures(d, args);
-	init_minimap(d, args);
-	init_animation(d, args);
 	free_args(args, 0);
 	return (d);
 }

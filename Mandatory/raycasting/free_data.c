@@ -6,27 +6,11 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 02:10:28 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/25 04:46:48 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/27 20:50:41 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-void	free_anim(t_anim *anim)
-{
-	int	i;
-
-	i = 0;
-	if (!anim)
-		return ;
-	while (i < anim->n)
-	{
-		if (anim->frames[i])
-			mlx_delete_texture(anim->frames[i]);
-		i++;
-	}
-	free(anim);
-}
 
 void	free_texts(t_textures *texs)
 {
@@ -56,8 +40,6 @@ void	free_map(t_map *map)
 void	free_data(t_data *data)
 {
 	free_texts(data->texs);
-	free_anim(data->anim);
 	free_map(data->map);
-	free(data->minimap);
 	free(data);
 }
