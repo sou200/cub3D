@@ -6,7 +6,7 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 20:47:45 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/25 20:49:57 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/28 08:35:16 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,10 @@ typedef struct s_ray
 	t_dbl			dir[2];
 	t_dbl			len;
 	double			dx;
-	double			dy;
 	int				side;
+	int				index;
+	unsigned char	*pixel;
+	double			dy;
 	int				step_x;
 	int				step_y;
 	double			x_len;
