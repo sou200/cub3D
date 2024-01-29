@@ -6,14 +6,14 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 20:47:45 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/28 08:35:16 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/29 02:29:50 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../MLX42/include/MLX42/MLX42.h"
+# include "../MLX42/MLX42.h"
 # include "parsing/cub3d1.h"
 # include <math.h>
 # include <stdio.h>
@@ -137,5 +137,6 @@ void				raycaster(t_data *d, t_ray *r);
 void				close_hook(void *param);
 void				init_animation(t_data *d, t_args *args);
 void				game_loop(void *g);
+void	render_textures(t_data *d, t_ray ray, int wall_height, int beg);
 
 #endif

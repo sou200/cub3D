@@ -6,7 +6,7 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 00:49:39 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/28 06:31:33 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/29 02:10:07 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	init_minimap(t_data *d, t_args *args)
 	d->minimap->size = 200;
 	d->minimap->x = 20;
 	d->minimap->y = 20;
-	d->minimap->zoom = 0.01;
+	d->minimap->zoom = 0.03;
 }
 
 void	init_map(t_data *d, t_args *args)

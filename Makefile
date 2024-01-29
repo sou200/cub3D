@@ -4,7 +4,7 @@ CFLAGS =  -Werror -Wextra -Wall #-fsanitize=address -g3
 RM = rm -f
 CC = cc
 MLXFLAGS = -Iinclude -lglfw -L"/Users/${USER}/.brew/opt/glfw/lib/"
-MLXLIB = MLX42/build/libmlx42.a
+MLXLIB = MLX42/libmlx42.a
 
 SRCS = Mandatory/main.c \
 	Mandatory/raycasting/player_events.c \

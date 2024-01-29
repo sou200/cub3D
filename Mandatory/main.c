@@ -6,7 +6,7 @@
 /*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 20:46:47 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/27 20:38:22 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/29 01:55:00 by serhouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	f(void)
 int	main(int ac, char **av)
 {
 	t_data	*d;
-	// atexit(f);
 
+	// atexit(f);
 	d = game_init(ac, av);
 	mlx_loop_hook(d->mlx, game_loop, d);
 	mlx_loop_hook(d->mlx, key_hook, d);
