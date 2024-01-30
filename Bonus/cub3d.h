@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: serhouni <serhouni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eoussama <eoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 20:47:45 by serhouni          #+#    #+#             */
-/*   Updated: 2024/01/29 02:29:50 by serhouni         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:41:40 by eoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CUB3D_H
 
 # include "../MLX42/MLX42.h"
-# include "parsing/cub3d1.h"
+# include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -104,6 +104,68 @@ enum				e_player_state
 	ROT_LEFT
 };
 
+// beg parsing
+
+typedef struct s_args
+{
+	char			*no;
+	char			*so;
+	char			*we;
+	char			*ea;
+	int				f_colors[3];
+	int				c_colors[3];
+	int				h;
+	int				w;
+	double			x;
+	double			y;
+	char			dir;
+	int				p;
+	char			**map;
+}					t_args;
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
+char				*get_next_line(int fd);
+int					is_a_new_l(char *str, char c);
+char				*collector(char *start, char *c_r);
+char				*co_helper(char *ret, char *start, char *c_r);
+int					length(char *s);
+char				*new_beginning(char *str);
+char				*line_cuter(char *str);
+char				*ft_strdup(char *src);
+char				**ft_split(char *str, char c);
+t_args				*parsing(int ac, char **av);
+void				free_2d(char **map);
+void				ft_error(char *str);
+void				free_struct(t_args *args);
+char				*ft_dot(char *str, t_args *args);
+void				valid_name(char *str, t_args *args);
+void				check_name(int ac, char **av, t_args *args);
+int					map_lines(char *str);
+char				**map_copy(char *str, t_args *args);
+void				put_null(t_args *args);
+int					com_conter(char *line);
+int					make_num(char *str);
+void				put_colors(t_args *args, char **colors, char c);
+int					split_len(char **colors);
+void				colors_fun(t_args *args, char *line, int j);
+void				text_fun(t_args *args, char *line, int j);
+int					just_line(char *line);
+char				**make_mwipa(char **map, int i);
+int					wnse(char c);
+int					valid_player(char **mwipa, int i, int c);
+int					end_line(char *line);
+int					make_num(char *str);
+void				put_help(t_args *args, char **colors, int i, char c);
+int					ft_strcmp(char *s1, char *s2);
+int					ft_atoi(const char *nptr);
+int					ft_isdigit(int c);
+int					check_line(t_args *args, char **mwipa, int i);
+int					map_with(char **map);
+// end parsing
+
 void				render_map(t_data *d);
 int					draw_line_p(t_data *d, int endX, int endY);
 void				player_rotate_key(t_data *data, enum e_player_state state);
@@ -137,6 +199,7 @@ void				raycaster(t_data *d, t_ray *r);
 void				close_hook(void *param);
 void				init_animation(t_data *d, t_args *args);
 void				game_loop(void *g);
-void	render_textures(t_data *d, t_ray ray, int wall_height, int beg);
+void				render_textures(t_data *d, t_ray ray, int wall_height,
+						int beg);
 
 #endif

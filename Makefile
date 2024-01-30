@@ -3,7 +3,7 @@ B_NAME = cub3d_bonus
 CFLAGS =  -Werror -Wextra -Wall #-fsanitize=address -g3
 RM = rm -f
 CC = cc
-MLXFLAGS = -Iinclude -lglfw -L"/Users/${USER}/.brew/opt/glfw/lib/"
+MLXFLAGS = -Iinclude -lglfw -L"/Users/${USER}/homebrew/opt/glfw/lib/"
 MLXLIB = MLX42/libmlx42.a
 
 SRCS = Mandatory/main.c \
@@ -21,7 +21,16 @@ SRCS = Mandatory/main.c \
 	Mandatory/raycasting/textures.c \
 	Mandatory/raycasting/game_hook.c \
 	Mandatory/parsing/gnl.c \
-	Mandatory/parsing/parc.c \
+	Mandatory/parsing/gnl1.c \
+	Mandatory/parsing/pars.c \
+	Mandatory/parsing/pars1.c \
+	Mandatory/parsing/pars2.c \
+	Mandatory/parsing/pars3.c \
+	Mandatory/parsing/pars4.c \
+	Mandatory/parsing/pars5.c \
+	Mandatory/parsing/pars6.c \
+	Mandatory/parsing/lib.c \
+
 
 B_SRCS = Bonus/main.c \
 	Bonus/raycasting/player_events.c \
@@ -43,7 +52,15 @@ B_SRCS = Bonus/main.c \
 	Bonus/raycasting/init_anim.c \
 	Bonus/raycasting/game_hook.c \
 	Bonus/parsing/gnl.c \
-	Bonus/parsing/parc.c \
+	Bonus/parsing/gnl1.c \
+	Bonus/parsing/pars.c \
+	Bonus/parsing/pars1.c \
+	Bonus/parsing/pars2.c \
+	Bonus/parsing/pars3.c \
+	Bonus/parsing/pars4.c \
+	Bonus/parsing/pars5.c \
+	Bonus/parsing/pars6.c \
+	Bonus/parsing/lib.c \
 
 
 

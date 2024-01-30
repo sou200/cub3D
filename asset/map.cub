@@ -1,16 +1,13 @@
 
 
-NO    asset/textures/hassan3.png
+NO    asset/textures/png3.png
+SO    asset/textures/png3.png
+WE    asset/textures/png3.png
+EA    asset/textures/png3.png
+F         222,184,135
 
-SO    asset/textures/oussama.png
 
-WE    asset/textures/sh.png
-
-F         111,1,1
-
-EA    asset/textures/free.png
-
-C          0,1,0
+C          135,206,235
 
 111111111111111   
 100000100000001    
